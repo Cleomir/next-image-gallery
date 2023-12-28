@@ -21,12 +21,12 @@ export default function Footer({ topic, page, prevPage, nextPage }: Props) {
   const prevPageArea = prevPage ? (
     <>
       <Link
-        href={`/results/${topic}/${nextPage}`}
+        href={`/results/${topic}/${prevPage}`}
         className={!nextPage ? "mx-auto" : ""}
       >
         &lt;&lt;&lt; {!nextPage ? "back" : null}
       </Link>
-      {pageNumbers.map((number, i) => {
+      {pageNumbers.map((number, i) =>
         page && number === Number(page) ? (
           <span key={i}>{number}</span>
         ) : (
@@ -37,8 +37,8 @@ export default function Footer({ topic, page, prevPage, nextPage }: Props) {
           >
             {number}
           </Link>
-        );
-      })}
+        )
+      )}
     </>
   ) : null;
   const nextPageArea = nextPage ? (
@@ -49,8 +49,6 @@ export default function Footer({ topic, page, prevPage, nextPage }: Props) {
       {!prevPage ? "more" : null} &gt;&gt;&gt;
     </Link>
   ) : null;
-
-  debugger;
 
   return (
     <footer className="flex flex-row justify-between items-center px-2 py-4 font-bold w-60 mx-auto">
